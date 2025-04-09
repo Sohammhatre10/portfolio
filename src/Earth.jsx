@@ -13,12 +13,12 @@ const Earth = () => {
   });
 
   return (
-    <primitive 
-      ref={earthRef}
-      object={scene} 
-      scale={30}
-      position={[-50, -30, 0]}
-    />
+      <primitive 
+        ref={earthRef}
+        object={scene} 
+        scale={30}
+        position={[0, -10, 0]}
+      />
   );
 };
 
