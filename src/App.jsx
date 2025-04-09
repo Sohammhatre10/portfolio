@@ -21,12 +21,7 @@ function App() {
           <directionalLight position={[5, 5, 5]} intensity={1} />
           <Suspense fallback={null}>
             <Earth />
-            <OrbitControls
-              enableZoom={true}
-              enablePan={false}
-              rotateSpeed={0.5}
-              autoRotate={false}
-            />
+            <OrbitControls/>
           </Suspense>
         </Canvas>
         <HeroText />
