@@ -17,7 +17,7 @@ const Earth = () => {
       ref={earthRef}
       object={scene} 
       scale={30}
-      position={[-50, 20, 0]}
+      position={[-50, 30, 0]}
     />
   );
 };
