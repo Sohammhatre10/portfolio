@@ -27,12 +27,12 @@ const Earth = ({ isDarkMode }) => {
   }, [isDarkMode, scene]);
 
   return (
-    <primitive 
-      ref={earthRef}
-      object={scene} 
-      scale={30}
-      position={[-50, -25, 0]}
-    />
+      <primitive 
+        ref={earthRef}
+        object={scene} 
+        scale={30}
+        position={[30, -20, 0]}
+      />
   );
 };
 
