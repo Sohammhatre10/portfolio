@@ -2,7 +2,7 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import React, { useRef, useEffect } from 'react';
 
-const Earth = ({ isDarkMode }) => {
+const Earth = () => {
   const { scene } = useGLTF('/galaxy.glb');
   const earthRef = useRef();
 
@@ -16,15 +16,16 @@ const Earth = ({ isDarkMode }) => {
     }
   });
 
+  // Set color to white
   useEffect(() => {
     if (scene) {
       scene.traverse((child) => {
         if (child.isMesh) {
-          child.material.color.set(isDarkMode ? '#ffffff' : '#000000');
+          child.material.color.set('#ffffff');
         }
       });
     }
-  }, [isDarkMode, scene]);
+  }, [scene]);
 
   return (
     <primitive 
