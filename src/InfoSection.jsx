@@ -43,7 +43,7 @@ const InfoSection = () => {
     {
       icon: <FaFileAlt />,
       label: "Resume",
-      url: "https://drive.google.com/file/d/1lGjofpeMlkli6hO9tRhXgpF8kalDbMMY/view?usp=sharing",
+      url: "https://drive.google.com/file/d/14yRTL2CX5OKY-HVDnfonU7TJz9W3QWs3/view?usp=sharing",
     },
   ];
 
