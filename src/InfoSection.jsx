@@ -85,7 +85,7 @@ const InfoSection = () => {
 
             <div className="space-y-6">
               <iframe
-                src="https://maps.google.com/?cid=202485962146990878&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
+                src="https://maps.google.com/maps?q=sectore+48+gurugram&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="200"
                 className="rounded-lg shadow-lg"
