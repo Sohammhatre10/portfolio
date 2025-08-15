@@ -31,6 +31,16 @@ const HeroText = () => {
           <DottedLetter key={`last-${idx}`} grid={letterGrids[char]} />
         ))}
       </div>
+
+      {/* Role + Fidelity Logo */}
+      <div className="flex items-center justify-center gap-2 text-sm text-gray-300 mt-2">
+        <img 
+          src="/fidelity-logo.png" 
+          alt="Fidelity International Logo" 
+          className="h-4"
+        />
+        <span>Programmer at Fidelity International</span>
+      </div>
     </div>
   );
 };
