@@ -85,7 +85,7 @@ const InfoSection = () => {
 
             <div className="space-y-6">
               <iframe
-                src="https://maps.google.com/maps?q=Mumbai,%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d278874.123456!2d77.012345678!3d28.456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19b1cXXXXYYY%3AGurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1234567890123"
                 width="100%"
                 height="200"
                 className="rounded-lg shadow-lg"
