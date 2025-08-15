@@ -94,7 +94,7 @@ const InfoSection = () => {
               <div className="grid grid-cols-3 gap-8 text-base">
                 <div>
                   <p className="font-semibold mb-2">Location</p>
-                  <p>Mumbai, India</p>
+                  <p>Gurugram, India</p>
                 </div>
                 <div>
                   <p className="font-semibold mb-2">India Time</p>
