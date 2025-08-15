@@ -35,7 +35,7 @@ const HeroText = () => {
       {/* Role + Fidelity Logo */}
       <div className="flex items-center justify-center gap-2 text-sm text-gray-300 mt-2">
         <img 
-          src="/fidelity-logo.png" 
+          src="public/fidelity-logo.png" 
           alt="Fidelity International Logo" 
           className="h-4"
         />
