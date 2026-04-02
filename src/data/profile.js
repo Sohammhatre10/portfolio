@@ -17,7 +17,7 @@ export const profile = {
     cpi: "9.16",
   },
   links: {
-    linkedin: "https://www.linkedin.com/in/sohammhatre10929be/",
+    linkedin: "https://www.linkedin.com/in/sohammhatre10/",
     github: "https://github.com/Sohammhatre10",
     portfolio: "https://sohammhatre.vercel.app/",
     resumeDrive:
