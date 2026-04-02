@@ -1,36 +1,38 @@
-import { OrbitControls } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
-import React, { Suspense } from 'react';
-import Earth from './Earth';
+import React, { useMemo } from 'react';
 import HeroText from './Herotext';
 import InfoSection from './InfoSection';
 import GithubProjects from './GithubProjects';
+import Iridescence from './Iridescence';
+import GalaxyBackground from './GalaxyBackground';
 
 function App() {
+  const iridColor = useMemo(() => [0.85, 0.85, 0.85], []);
+
   return (
-    <div 
-      className="w-full h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth scrollbar-hide font-serif bg-black"
+    <div
+      className="relative w-full h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth scrollbar-hide font-sans text-white antialiased bg-black"
       style={{
         scrollbarWidth: 'none',
         msOverflowStyle: 'none',
         WebkitOverflowScrolling: 'touch',
       }}
-    >      
-      {/* Section 1: Earth + HeroText */}
-      <section className="relative w-full h-screen snap-start">
-        <Canvas
-          frameloop="always"
-          dpr={[1, 1.5]}
-          gl={{ antialias: true }}
-          className="absolute top-0 left-0 w-full h-full z-0"
-        >
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[5, 5, 5]} intensity={1} />
-          <Suspense fallback={null}>
-            <Earth />
-          </Suspense>
-        </Canvas>
-        <HeroText />
+    >
+      <div
+        className="pointer-events-none fixed inset-0 -z-10 opacity-40 animate-gradient-shift"
+        style={{
+          background:
+            'radial-gradient(ellipse 80% 50% at 50% -20%, oklch(0.35 0.12 280 / 0.35), transparent 50%), radial-gradient(ellipse 60% 40% at 100% 50%, oklch(0.3 0.08 195 / 0.2), transparent 45%), radial-gradient(ellipse 50% 35% at 0% 80%, oklch(0.25 0.06 300 / 0.25), transparent 50%)',
+        }}
+      />
+      {/* Section 1: Galaxy + hero (name centered in viewport) + Iridescence anchored bottom */}
+      <section className="relative min-h-screen overflow-hidden snap-start">
+        <GalaxyBackground />
+        <div className="relative z-30 flex min-h-screen w-full flex-col items-center justify-center px-4">
+          <HeroText />
+        </div>
+        <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 justify-center animate-float-soft md:bottom-8">
+          <Iridescence color={iridColor} amplitude={0.15} speed={1.2} ring={true} size={280} />
+        </div>
       </section>
 
       {/* Section 2: GitHub Projects */}

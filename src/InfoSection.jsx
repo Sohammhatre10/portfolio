@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import {
-  FaSearch,
-  FaLinkedin,
-  FaGithub,
-  FaFileAlt,
-} from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaSearch, FaLinkedin, FaGithub, FaFileAlt } from "react-icons/fa";
+import { profile } from "./data/profile";
+import FidelityLogo from "./FidelityLogo";
 
 const InfoSection = () => {
   const [time, setTime] = useState("");
@@ -33,82 +31,160 @@ const InfoSection = () => {
     {
       icon: <FaLinkedin />,
       label: "LinkedIn",
-      url: "https://www.linkedin.com/in/sohammhatre10929be/",
+      url: profile.links.linkedin,
     },
     {
       icon: <FaGithub />,
       label: "GitHub",
-      url: "https://github.com/Sohammhatre10",
+      url: profile.links.github,
     },
     {
       icon: <FaFileAlt />,
       label: "Resume",
-      url: "https://drive.google.com/file/d/1lGjofpeMlkli6hO9tRhXgpF8kalDbMMY/view?usp=sharing",
+      url: profile.links.resumeDrive,
     },
   ];
 
   return (
-    <section className="min-h-screen bg-black text-white">
-      <div className="container mx-auto h-full flex items-center justify-center px-4 lg:px-8">
-        <div className="flex flex-col lg:flex-row w-full max-w-7xl gap-8 py-12">
-          {/* Left Column */}
-          <div className="lg:w-1/2 border-r border-gray-800 flex flex-col justify-evenly space-y-12 pr-8">
+    <section className="relative min-h-screen bg-black text-white">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-fuchsia-500/30 to-transparent"
+        aria-hidden
+      />
+      <div className="container mx-auto flex h-full items-center justify-center px-4 lg:px-8">
+        <div className="flex w-full max-w-7xl flex-col gap-10 py-14 lg:flex-row lg:gap-12 lg:py-12">
+          <motion.div
+            className="flex flex-col justify-evenly space-y-8 border-white/10 pr-0 lg:w-1/2 lg:border-r lg:pr-10"
+            initial={{ opacity: 1, x: -18 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          >
             {leftIcons.map((item, idx) => (
-              <a
+              <motion.a
                 key={idx}
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 title={item.label}
-                className="flex items-center space-x-8 hover:text-cyan-400 transition duration-300"
+                initial={{ opacity: 1, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: 0.08 * idx, duration: 0.45 }}
+                whileHover={{ x: 6 }}
+                className="group flex items-center gap-6 md:gap-8"
               >
-                <div className="w-20 h-20 rounded-full flex items-center justify-center text-3xl shadow-lg bg-white text-black">
-                  {item.icon}
+                <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-gradient-to-br from-white/12 to-white/5 text-2xl text-white shadow-[0_8px_32px_rgba(0,0,0,0.35)] transition-all duration-300 group-hover:border-cyan-400/40 group-hover:shadow-[0_0_24px_rgba(34,211,238,0.15)] md:h-20 md:w-20 md:text-3xl">
+                  <span className="relative z-10">{item.icon}</span>
                 </div>
-                <span className="text-xl font-medium">{item.label}</span>
-              </a>
+                <span className="font-display text-lg font-semibold tracking-tight text-white/90 transition-colors group-hover:text-cyan-200 md:text-xl">
+                  {item.label}
+                </span>
+              </motion.a>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Right Column */}
-          <div className="lg:w-1/2 flex flex-col justify-between space-y-12 pl-8">
-            <div className="text-4xl font-bold">
-              <span className="px-4 py-1 bg-white text-black">
-                Soham Mhatre.
-              </span>
+          <motion.div
+            className="flex flex-col justify-between space-y-10 pl-0 lg:w-1/2 lg:pl-10"
+            initial={{ opacity: 1, x: 18 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div>
+              <motion.div
+                className="font-display inline-block text-3xl font-bold tracking-tight md:text-4xl"
+                initial={{ opacity: 1, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: 0.1 }}
+              >
+                <span className="relative rounded-lg bg-gradient-to-r from-white to-white/85 px-4 py-2 text-black shadow-[0_0_40px_rgba(255,255,255,0.12)]">
+                  {profile.shortName}.
+                </span>
+              </motion.div>
+              <p className="mt-3 font-display text-base font-semibold text-white/90 md:text-lg">
+                {profile.title}
+              </p>
+              <div className="mt-2 flex flex-wrap items-center gap-2 md:gap-2.5">
+                <FidelityLogo className="h-7 w-7 shrink-0 md:h-8 md:w-8" />
+                <p className="font-display text-base font-semibold text-cyan-200/90 md:text-lg">
+                  {profile.company}
+                </p>
+              </div>
+              <p className="mt-2 max-w-md font-sans text-sm font-light text-white/55 md:text-base">
+                {profile.education.degree}, {profile.education.school} ({profile.education.year}, CPI{" "}
+                {profile.education.cpi}). 
+              </p>
             </div>
 
-            <div className="text-lg space-y-4">
-              <p className="text-xl">+919324005150</p>
-              <p className="text-xl">sohammhatre521@gmail.com</p>
+            <div className="space-y-3 font-sans text-lg md:text-xl">
+              <motion.p
+                className="text-white/85 transition-colors hover:text-cyan-200/90"
+                whileHover={{ x: 4 }}
+              >
+                +919324005150
+              </motion.p>
+              <motion.p
+                className="text-white/85 transition-colors hover:text-cyan-200/90"
+                whileHover={{ x: 4 }}
+              >
+                sohammhatre521@gmail.com
+              </motion.p>
             </div>
 
             <div className="space-y-6">
-              <iframe
-                src="https://maps.google.com/maps?q=Mumbai,%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="200"
-                className="rounded-lg shadow-lg"
-                loading="lazy"
-              />
-              <div className="grid grid-cols-3 gap-8 text-base">
+              <motion.div
+                className="overflow-hidden rounded-xl border border-white/10 shadow-[0_12px_48px_rgba(0,0,0,0.45)]"
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.3 }}
+              >
+                <iframe
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                    profile.location
+                  )}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
+                  width="100%"
+                  height="200"
+                  className="rounded-xl"
+                  loading="lazy"
+                  title={`Map — ${profile.location}`}
+                />
+              </motion.div>
+              <div className="grid grid-cols-1 gap-6 text-base sm:grid-cols-3 sm:gap-8">
                 <div>
-                  <p className="font-semibold mb-2">Location</p>
-                  <p>Mumbai, India</p>
+                  <p className="font-display mb-2 text-xs font-semibold uppercase tracking-widest text-white/40">
+                    Location
+                  </p>
+                  <p className="font-sans text-white/80">{profile.location}</p>
                 </div>
                 <div>
-                  <p className="font-semibold mb-2">India Time</p>
-                  <p>{time}</p>
+                  <p className="font-display mb-2 text-xs font-semibold uppercase tracking-widest text-white/40">
+                    India Time
+                  </p>
+                  <p className="font-sans tabular-nums text-white/80">{time}</p>
                 </div>
                 <div>
-                  <p className="font-semibold mb-2">Status</p>
-                  <p className="text-green-400">● Available</p>
+                  <p className="font-display mb-2 text-xs font-semibold uppercase tracking-widest text-white/40">
+                    Status
+                  </p>
+                  <p className="font-sans text-emerald-400/95">
+                    <span className="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" />
+                    Available
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div className="text-4xl font-bold">SM.</div>
-          </div>
+            <motion.div
+              className="font-display text-4xl font-extrabold tracking-tighter text-white/12 md:text-5xl"
+              initial={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: 0.3 }}
+            >
+              SM.
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
