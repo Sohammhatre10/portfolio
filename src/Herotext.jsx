@@ -1,8 +1,7 @@
 // components/HeroText.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import DottedLetter from './DottedLetter';
-import { letterGrids } from './letterData';
+import BreakoutGame from './BreakoutGame';
 import { FaGithub, FaLinkedin, FaFileAlt, FaFlask } from 'react-icons/fa';
 import { profile } from './data/profile';
 import FidelityLogo from './FidelityLogo';
@@ -34,8 +33,6 @@ const linkItem = {
 };
 
 const HeroText = () => {
-  const firstName = 'SOHAM';
-  const lastName = 'MHATRE';
   const portfolioDate = new Date().toLocaleDateString('en-US', {
     month: 'long',
     year: 'numeric',
@@ -62,22 +59,9 @@ const HeroText = () => {
         Portfolio · {portfolioDate}
       </motion.p>
 
-      <div className="flex w-full flex-col items-center justify-center gap-4 md:gap-5">
-        <div className="flex w-full justify-center gap-2 md:gap-3">
-          {firstName.split('').map((char, idx) => (
-            <motion.span key={`first-${idx}`} variants={item}>
-              <DottedLetter grid={letterGrids[char]} />
-            </motion.span>
-          ))}
-        </div>
-        <div className="flex w-full justify-center gap-2 md:gap-3">
-          {lastName.split('').map((char, idx) => (
-            <motion.span key={`last-${idx}`} variants={item}>
-              <DottedLetter grid={letterGrids[char]} />
-            </motion.span>
-          ))}
-        </div>
-      </div>
+      <motion.div variants={item} className="w-full">
+        <BreakoutGame />
+      </motion.div>
 
       <motion.div
         variants={item}

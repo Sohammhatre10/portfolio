@@ -1,21 +1,30 @@
-import React, { Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { Suspense, useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
 
 function StarField() {
+  const groupRef = useRef();
+
+  useFrame((state, delta) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y -= delta * 0.05;
+      groupRef.current.rotation.x -= delta * 0.02;
+    }
+  });
+
   return (
-    <>
-      <color attach="background" args={['#020204']} />
+    <group ref={groupRef}>
+      <color attach="background" args={['#000000']} />
       <Stars
         radius={140}
         depth={90}
         count={9000}
         factor={5.5}
-        saturation={0.12}
+        saturation={0}
         fade
-        speed={0.35}
+        speed={1}
       />
-    </>
+    </group>
   );
 }
 

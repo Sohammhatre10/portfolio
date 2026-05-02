@@ -17,15 +17,9 @@ const projects = [
     span: "",
   },
   {
-    title: "CADMI (Base)",
-    href: "https://github.com/Sohammhatre10/cadmi_base",
-    description: "Backend for a student guidance platform to assist with undergraduate admission decisions.",
-    span: "",
-  },
-  {
-    title: "CADMI (Frontend)",
-    href: "https://github.com/Sohammhatre10/cadmi_frontend_react",
-    description: "React frontend for the CADMI student guidance and admission platform.",
+    title: "ApexSwipe",
+    href: "https://github.com/Sohammhatre10/apex-swipe",
+    description: "A dynamic stock and fund discovery application with a futuristic swipe interface, live market data, and a tag-based recommendation engine.",
     span: "",
   },
   {

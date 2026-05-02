@@ -4,6 +4,7 @@ import InfoSection from './InfoSection';
 import GithubProjects from './GithubProjects';
 import Iridescence from './Iridescence';
 import GalaxyBackground from './GalaxyBackground';
+import ExperienceQuest from './ExperienceQuest';
 
 function App() {
   const iridColor = useMemo(() => [0.85, 0.85, 0.85], []);
@@ -18,10 +19,9 @@ function App() {
       }}
     >
       <div
-        className="pointer-events-none fixed inset-0 -z-10 opacity-40 animate-gradient-shift"
+        className="pointer-events-none fixed inset-0 -z-10 opacity-20"
         style={{
-          background:
-            'radial-gradient(ellipse 80% 50% at 50% -20%, oklch(0.35 0.12 280 / 0.35), transparent 50%), radial-gradient(ellipse 60% 40% at 100% 50%, oklch(0.3 0.08 195 / 0.2), transparent 45%), radial-gradient(ellipse 50% 35% at 0% 80%, oklch(0.25 0.06 300 / 0.25), transparent 50%)',
+          background: "url('https://www.transparenttextures.com/patterns/stardust.png')",
         }}
       />
       {/* Section 1: Galaxy + hero (name centered in viewport) + Iridescence anchored bottom */}
@@ -40,7 +40,12 @@ function App() {
         <GithubProjects />
       </section>
 
-      {/* Section 3: Info Section */}
+      {/* Section 3: Experience Quest */}
+      <section className="w-full min-h-screen snap-start">
+        <ExperienceQuest />
+      </section>
+
+      {/* Section 4: Info Section */}
       <section className="w-full min-h-screen snap-start">
         <InfoSection />
       </section>
